@@ -1,0 +1,36 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    font-size: 24px;
+    font-weight: 500;
+    
+    &::before {
+        content: '';
+        
+        flex-grow: 1;
+        display: block;
+        height: 2px;
+        
+        background-color: color(primary);
+    }
+}
+
+.logo__text {
+    width: 15%;
+    height: 64px;
+    margin: 0 8px;
+    overflow: hidden;
+    
+    text-align: center;
+    line-height: 64px;
+    
+    &:first-child {
+        order: -1;
+    }
+}
+
+.logo__letters {
+    @include visually-hidden;
+}

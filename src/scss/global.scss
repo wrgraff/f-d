@@ -1,6 +1,8 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    
     font-family: $font-family, 'Helvetica', 'Segoe UI', sans-serif;;
+}
+
+a {
+    color: color(primary);
+    text-decoration: none;
 }

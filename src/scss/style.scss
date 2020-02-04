@@ -1,4 +1,6 @@
+@import "mixins";
+@import "variables/common";
+@import "normalize";
 @import "fonts";
 @import "global";
-@import "variables/common";
-// @import "modules/common";
+@import "blocks/common";

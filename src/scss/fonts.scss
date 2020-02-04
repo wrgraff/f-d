@@ -23,3 +23,4 @@ $unicode-ranges: (
 }
 
 @include font-face($font-family, '../fonts/gotham-regular', 400, normal);
+@include font-face($font-family, '../fonts/gotham-medium', 500, normal);
