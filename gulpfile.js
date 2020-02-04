@@ -81,7 +81,7 @@ gulp.task('favicons', () => {
 });
 
 gulp.task('fonts', () => {
-	return gulp.src('src/fonts/**/*{ttf,woff,woff2}')
+	return gulp.src('src/fonts/**/*{woff,woff2}')
         .pipe(gulp.dest('dist/static/fonts'));
 });
 
