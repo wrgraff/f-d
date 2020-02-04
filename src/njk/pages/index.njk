@@ -3,5 +3,127 @@
 {% extends '../layouts/index.njk' %}
 
 {% block content %}
-	<p>Content</p>
+	<h1 class="visually-hidden">Сайт Артура Трифонова</h1>
+	
+	<section class="page-main__section promo">
+		<h2>Коротко обо мне</h2>
+		<img src="https://via.placeholder.com/150" class="promo__img" alt="Фото Артура Трифонова">
+		
+		<p class="promo__title">Разрабатываю интерфейсы</p>
+		<p class="promo__text">Адаптивность, БЭМ, ванильный js и доступность</p>
+		
+		<h3>Контакты</h3>
+		<ul class="promo__contacts contacts">
+			<li class="contacts__item">
+				<a href="https://github.com/wrgraff" class="contacts__link">GitHub</a>
+			</li>
+			<li class="contacts__item">
+				<a href="https://linkedin.com/in/arturtrifonov" class="contacts__link">LinkedIn</a>
+			</li>
+			<li class="contacts__item">
+				<a href="https://www.facebook.com/wrgraff" class="contacts__link">Facebook</a>
+			</li>
+			<li class="contacts__item">
+				<a href="https://twitter.com/a_sassafras" class="contacts__link">Twitter</a>
+			</li>
+			<li class="contacts__item">
+				<a href="https://htmlacademy.ru/profile/wrgraff" class="contacts__link">HTML Academy</a>
+			</li>
+		</ul>
+		
+		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>
+	</section>
+	
+	<section class="page-main__section services">
+		<h2 class="visually-hidden">Услуги</h2>
+		<p class="page-main__heading">Чем могу помочь?</p>
+		<p class="page-main__subheading">Разработаю интерфейс с нуля или по готовым дизайн-макетам, подготовлю к установке на CMS или другой интеграции.</p>
+		
+		<ul class="services__list">
+			<li class="services__item">
+				<h3 class="services__heading">Адаптив</h3>
+				<p class="services__text">Работа сайта на разрешениях с 0 пикселей до 4000</p>
+			</li>
+			<li class="services__item">
+				<h3 class="services__heading">Доступность</h3>
+				<p class="services__text">Сайт доступен с клавиатуры, для скринридеров, поисковых роботов</p>
+			</li>
+			<li class="services__item">
+				<h3 class="services__heading">Валидность</h3>
+				<p class="services__text">Код соответствует современным стандартам и выглядит достойно в любых браузерах</p>
+			</li>
+			<li class="services__item">
+				<h3 class="services__heading">Производительность</h3>
+				<p class="services__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+			</li>
+		</ul>
+		
+		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>
+	</section>
+	
+	<section class="page-main__section about">
+		<h2 class="page-main__heading">Обо мне</h2>
+		<p class="page-main__subheading">Разработчик интерфейсов из Санкт-Петербурга. Занимаюсь дизайном и фронтендом: работаю на стыке двух плотно пересекающихся областей.</p>
+
+		<p class="about__time">11 лет разрабатываю итнерфейсы</p>
+		<p class="about__destination">с 2009 года занимаюсь дизайном</p>
+		<p class="about__destination about__destination_frontend">с 2013 года занимаюсь фронтендом</p>
+		
+		<p>Веб-разработка стала не только моей работой, но и увлечением, а ее безумные темпы развития только подстегивают интерес. Мне важно то, чем я занимаюсь, и я ценю работу с теми, кому не безразлично собственное дело.</p>
+		<p>С интересом наставничаю в HTML Academy</p>
+	</section>
+	
+	<section class="page-main__section works">
+		<h2 class="page-main__heading">Последние работы</h2>
+		
+		<ul class="works__list">
+			<li class="works__item">
+				<h3 class="works__heading">Каталог оборудования Сенсорматика</h3>
+				<img src="https://via.placeholder.com/278x340" class="works__img" alt="Скриншоты сайта Сенсорматика">
+				<h4 class="visually-hidden">Тип работ</h4>
+				<ul class="works__categories">
+					<li>фронтенд</li>
+					<li>дизайн</li>
+					<li>поддержка</li>
+				</ul>
+				<a href="#" class="works__link">sensormatica.ru</a>
+			</li>
+			
+			<li class="works__item">
+				<h3 class="works__heading">Каталог оборудования Сенсорматика</h3>
+				<img src="https://via.placeholder.com/278x340" class="works__img" alt="Скриншоты сайта Сенсорматика">
+				<h4 class="visually-hidden">Тип работ</h4>
+				<ul class="works__categories">
+					<li>фронтенд</li>
+					<li>дизайн</li>
+					<li>поддержка</li>
+				</ul>
+				<a href="#" class="works__link">sensormatica.ru</a>
+			</li>
+			
+			<li class="works__item">
+				<h3 class="works__heading">Каталог оборудования Сенсорматика</h3>
+				<img src="https://via.placeholder.com/278x340" class="works__img" alt="Скриншоты сайта Сенсорматика">
+				<h4 class="visually-hidden">Тип работ</h4>
+				<ul class="works__categories">
+					<li>фронтенд</li>
+					<li>дизайн</li>
+					<li>поддержка</li>
+				</ul>
+				<a href="#" class="works__link">sensormatica.ru</a>
+			</li>
+			
+			<li class="works__item">
+				<h3 class="works__heading">Каталог оборудования Сенсорматика</h3>
+				<img src="https://via.placeholder.com/278x340" class="works__img" alt="Скриншоты сайта Сенсорматика">
+				<h4 class="visually-hidden">Тип работ</h4>
+				<ul class="works__categories">
+					<li>фронтенд</li>
+					<li>дизайн</li>
+					<li>поддержка</li>
+				</ul>
+				<a href="#" class="works__link">sensormatica.ru</a>
+			</li>
+		</ul>
+	</section>
 {% endblock %}
