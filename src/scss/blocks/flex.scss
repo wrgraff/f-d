@@ -1,0 +1,228 @@
+// --- Container
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex_align_start {
+    align-items: flex-start;
+}
+.flex_align_center {
+    align-items: center;
+}
+.flex_align_end {
+    align-items: end;
+}
+
+.flex_justify_center {
+    justify-content: center;
+}
+.flex_justify_end {
+    justify-content: end;
+}
+.flex_justify_around {
+    justify-content: space-around;
+}
+.flex_justify_between {
+    justify-content: space-between;
+}
+
+
+// --- Grid
+$flex-gaps: (
+    zero: 24px,
+    large: 32px,
+);
+$flex-columns: 6;
+$flex-columns-breakpoints: $breakpoints;
+
+// Gaps
+.flex {
+    // Calculating gaps at first
+    --flex-gap: #{$bit * 2};
+
+    @each $breakpoint, $gap in $flex-gaps {
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            --flex-gap: #{$gap};
+
+            &.flex_gap_half {
+                --flex-gap: #{$gap * .714};
+            }
+        }
+    }
+
+    margin: 0 ($bit * -2); // Grid gap for old browsers (ok, for IE only)
+    margin: 0 calc(var(--flex-gap) / -2);
+}
+.flex_gap_0 { // Zero gaps not need calculations
+    --flex-gap: 0px;
+    margin: 0;
+}
+
+.flex__item {
+    margin: 0 ($bit * 2); // Grid gap for old browsers (ok, for IE only)
+    margin: 0 calc(var(--flex-gap) / 2);
+}
+.flex_gap_0 > .flex__item { // Zero gaps not need calculations
+    margin: 0;
+}
+
+.flex__item_gap_half {
+    @each $breakpoint, $gap in $flex-gaps {
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            --flex-gap: #{$gap / 2};
+        }
+    }
+}
+.flex__item_gap_0 {
+    --flex-gap: 0px;
+}
+
+// Columns width
+// Base columns width
+[class*="flex_columns"] > .flex__item {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+// Formula for % value for fallback without calc:
+// ((Container width / number of container columns * number of item columns) - item gap) * 100% / Container width
+
+// Counted columns width
+@for $i from 1 through $flex-columns {
+    [class*="flex_columns"] > .flex__item_#{$i} {
+        flex-basis: ((960px / $flex-columns * $i) - ($bit * 4)) * 100% / 960px;
+        min-width: ((960px / $flex-columns * $i) - ($bit * 4)) * 100% / 960px;
+        flex-basis: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+        min-width: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+}
+
+// Container counter mode
+@for $i from 1 through $flex-columns {
+    // Base columns width in counted container
+    .flex_columns_#{$i} > .flex__item {
+        flex-basis: ((960px / $i) - ($bit * 4)) * 100% / 960px;
+        min-width: ((960px / $i) - ($bit * 4)) * 100% / 960px;
+        flex-basis: calc(#{100% / $i} - var(--flex-gap));
+        min-width: calc(#{100% / $i} - var(--flex-gap));
+    }
+
+    // Counted columns width in counted container
+    @for $j from 1 through $i {
+        .flex_columns_#{$i} > .flex__item_#{$j} {
+            flex-basis: ((960px / $i * $j) - ($bit * 4)) * 100% / 960px;
+            min-width: ((960px / $i * $j) - ($bit * 4)) * 100% / 960px;
+            flex-basis: calc(#{100% / $i * $j} - var(--flex-gap));
+            min-width: calc(#{100% / $i * $j} - var(--flex-gap));
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+    }
+}
+
+// Responsive
+@each $breakpoint-name, $breakpoint-value in $flex-columns-breakpoints {
+    @media screen and (min-width: $breakpoint-value) {
+        // Counted columns width
+        @for $i from 1 through $flex-columns {
+            [class*="flex_columns"] > .flex__item_#{$breakpoint-name}_#{$i} {
+                flex-basis: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                min-width: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                flex-basis: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+                min-width: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+                flex-grow: 0;
+                flex-shrink: 0;
+            }
+        }
+
+        // Container counter mode
+        @for $i from 1 through $flex-columns {
+            // Base columns width in counted container
+            .flex_columns_#{$breakpoint-name}_#{$i} > .flex__item {
+                flex-basis: (($breakpoint-value / $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                min-width: (($breakpoint-value / $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                flex-basis: calc(#{100% / $i} - var(--flex-gap));
+                min-width: calc(#{100% / $i} - var(--flex-gap));
+            }
+
+            // Counted columns width in counted container
+            @for $j from 1 through $i {
+                .flex_columns_#{$breakpoint-name}_#{$i} > .flex__item_#{$j} {
+                    flex-basis: (($breakpoint-value / $i * $j) - ($bit * 4)) * 100% / $breakpoint-value;
+                    min-width: (($breakpoint-value / $i * $j) - ($bit * 4)) * 100% / $breakpoint-value;
+                    flex-basis: calc(#{100% / $i * $j} - var(--flex-gap));
+                    min-width: calc(#{100% / $i * $j} - var(--flex-gap));
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// --- Items
+
+$flex-orders: 4;
+$flex-order-breakpoints: $breakpoints;
+
+.flex__item_align_start {
+    align-self: flex-start;
+}
+
+.flex__item_align_center {
+    align-self: center;
+}
+
+.flex__item_align_end {
+    align-self: flex-end;
+}
+
+.flex__item_align_stretch {
+    align-self: stretch;
+}
+
+.flex__item_stick_right,
+.flex_gap_0 .flex__item_stick_right {
+    margin-left: auto;
+}
+.flex__item_stick_left,
+.flex_gap_0 .flex__item_stick_left {
+    margin-right: auto;
+}
+.flex__item_stick_bottom,
+.flex_gap_0 .flex__item_stick_bottom {
+    margin-top: auto;
+}
+.flex__item_stick_top,
+.flex_gap_0 .flex__item_stick_top {
+    margin-bottom: auto;
+}
+
+// Orders
+@for $i from 0 through $flex-orders {
+    .flex__item_order_#{$i} {
+        order: $i;
+    }
+    .flex__item_order_r#{$i} {
+        order: -$i;
+    }
+}
+
+@each $breakpoint-name, $breakpoint-value in $flex-order-breakpoints {
+    @media screen and (min-width: $breakpoint-value) {
+        @for $i from 0 through $flex-orders {
+            .flex__item_#{$breakpoint-name}_order_#{$i} {
+                order: $i;
+            }
+            .flex__item_#{$breakpoint-name}_order_r#{$i} {
+                order: -$i;
+            }
+        }
+    }
+}

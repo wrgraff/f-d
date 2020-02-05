@@ -1,0 +1,51 @@
+.page-main {
+    background-color: color(light-gray);
+    background-image: linear-gradient(90deg, color(medium-gray), color(medium-gray) 1px, transparent 1px);
+    background-size: calc(25% - 6px) auto;
+    background-position: 11px 50%;
+}
+
+.page-main__section {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 80px 24px;
+}
+
+.page-main__section_white {
+    background-color: color(white);
+}
+.page-main__section_black {
+    color: color(white);
+    background-color: color(black);
+}
+
+.page-main__heading {
+    margin: 0 0 16px;
+
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.page-main__subheading {
+    margin: 0 0 48px;
+
+    opacity: .7;
+    
+    text-align: center;
+}
+
+.page-main__button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    
+    white-space: nowrap;
+
+    transform: translate(-50%, 50%);   
+}

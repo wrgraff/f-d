@@ -1,3 +1,16 @@
+// Simple blocks
 @import "visually-hidden";
-@import "page-header";
 @import "logo";
+@import "menu";
+@import "contacts";
+@import "button";
+
+// Layout blocks
+@import "flex";
+@import "page-header";
+@import "page-main";
+@import "page-footer";
+@import "promo";
+@import "services";
+@import "about";
+@import "works";

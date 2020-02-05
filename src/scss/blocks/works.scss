@@ -1,0 +1,129 @@
+.works__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.works__item {
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 340px;
+    padding: 24px;
+    
+    background-color: color(light-gray);
+    border-radius: 2px;
+}
+
+.works__heading {
+	margin: 0 0 8px;
+    
+    line-height: 1.4;
+    font-size: 18px;
+    font-weight: 500;
+    
+    transition: color 200ms ease-in-out;
+    
+    .works__item:hover & {
+        color: color(primary);
+    }
+}
+
+.works__img {
+    order: -1;
+    display: flex;
+    justify-content: flex-end;
+    margin: -24px -24px 24px;
+    overflow: hidden;
+    
+    background-color: color(medium-gray);
+    border-radius: 2px 2px;
+}
+
+.works__categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px 16px;
+    padding: 0;
+
+    list-style: none;
+
+    color: color(dark-gray);
+
+    font-size: 14px;
+    
+    li {
+        padding: 2px 8px;
+    }
+}
+
+.works__link {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    
+    color: color(dark-gray);
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 4;
+    }
+}
+
+.works__link-address {
+    margin: 0;
+    transform: translateX(-32px);
+    transition: transform 200ms ease-out 150ms;
+    
+    .works__link:hover & {
+        transform: translateX(0);
+        transition: transform 200ms ease-out;
+    }
+}
+
+.works__link-chain {
+    margin-top: 1px;
+    margin-left: -8px;
+
+    path, polygon {
+        fill: transparent;
+    }
+
+    #chain_center {
+        transition: fill 200ms ease;
+    }
+    #chain_left,
+    #chain_right {
+        transition: fill 200ms ease, transform 200ms ease-out 200ms;
+    }
+    #chain_left {
+        transform: translateX(-8px);
+    }
+    #chain_right {
+        transform: translateX(8px);
+    }
+
+    .works__item:hover & {
+        path, polygon {
+            fill: color(dark-gray);
+        }
+        #chain_center {
+            transition: fill 200ms ease 100ms;
+        }
+        #chain_left,
+        #chain_right {
+            transform: translateX(0);
+            transition: fill 200ms ease 100ms, transform 200ms ease-out 150ms;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+    padding: 0;
+    
+    list-style: none;
+}
+
+.contacts__item {
+    margin: 0 8px 8px;
+}
+
+.contacts__link {
+    border-bottom: 1px solid;
+    
+    text-transform: lowercase;
+}

@@ -1,0 +1,20 @@
+.menu {
+    padding: 16px 0;
+    
+    text-align: center;
+}
+
+.menu__link {
+    display: block;
+    padding: 10px 8px;
+    
+    color: color(black);
+    
+    font-weight: 500;
+    
+    &:hover {
+        color: color(primary);
+        background-color: rgba(color(white), .4);
+    }
+}
+

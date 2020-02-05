@@ -1,0 +1,108 @@
+{% set worksItems = [
+    {
+        name: ["Sensormatica equipment catalog", "Каталог оборудования Сенсорматики"],
+        img: "sensormatica",
+        address: 'sensormatica.ru',
+        link: 'https://sensormatica.ru/',
+        categories: ['frontend', 'design', 'support']
+    },{
+        name: ["Stockholm School of Economics Russia", "Стокгольмская Школа Экономики в России"],
+        img: "sse",
+        address: 'sserussia.org',
+        link: 'https://www.sserussia.org/en/',
+        categories: ['frontend', 'design', 'support']
+    },{
+        name: ["Biteh store of industrial equipment", "Магазин промышленного оборудования Битех"],
+        img: "biteh",
+        address: 'bi-teh.ru',
+        link: 'https://bi-teh.ru/',
+        categories: ['frontend', 'design', 'support']
+    },{
+        name: ["BusinesStat Market reviews & business plans store", "Готовые обзоры рынков и бизнес-планы БизнесСтат"],
+        img: "businesstat",
+        address: 'businesstat.ru',
+        link: 'https://businesstat.ru/',
+        categories: ['frontend']
+    },{
+        name: ["FLOVER bouquet shop", "Магазин букетов FLOVER"],
+        img: "flover",
+        address: 'floverart.ru',
+        link: 'https://floverart.ru/',
+        categories: ['frontend']
+    },{
+        name: ["Smart Business Lab trainings", "Тренинги Smart Business Lab"],
+        img: "sbl",
+        address: 'smartbl.ru',
+        link: 'http://smartbl.ru/',
+        categories: ['frontend']
+    },{
+        name: ["United Design studio", "Студия United Design"],
+        img: "ud",
+        address: 'uniteddesign.ru',
+        link: 'https://uniteddesign.ru/',
+        categories: ['frontend', 'design', 'support']
+    },{
+        name: ["Construction company Pilbet", "Строительная компания Пилбет"],
+        img: "pilbet",
+        address: 'pilbet.rf',
+        link: 'http://пилбет.рф/',
+        categories: ['frontend']
+    },{
+        name: ["UP-quarters page", "Лендинг UP-кварталов"],
+        img: "up",
+        address: '7035555.ru',
+        link: 'http://7035555.ru/',
+        categories: ['frontend']
+    },{
+        name: ["Meandr template page", "Шаблон страницы Meandr"],
+        img: "meandr",
+        address: 'meandr.frontend-design.ru',
+        link: 'http://meandr.frontend-design.ru/',
+        categories: ['frontend']
+    }
+] %}
+
+{% macro addWorksItem(name, img, address, link, categories) %}
+    <li class="works__item">
+        <h3 class="works__heading">{{ name[0] if (lang == 'en') }}{{ name[1] if (lang == 'ru') }}</h3>
+        <div class="works__img">
+            <img src="https://via.placeholder.com/278x340" alt="Скриншоты сайта Сенсорматика">
+            {# <picture>
+	            <source srcset="/static/img/works/{{ img }}.webp 1x,
+	                            /static/img/works/{{ img }}@2x.webp 2x"
+	                    type="image/webp" />
+	            <img src="/static/img/works/{{ img }}.png"
+	                 srcset="/static/img/works/{{ img }}@2x.png 2x"
+	                 alt="{{ name }}"
+					 aria-hidden="true" />
+	        </picture> #}
+        </div>
+        <h4 class="visually-hidden">Тип работ</h4>
+        <ul class="works__categories">
+            {% for category in categories %}
+                <li>{{ category }}</li>
+            {% endfor %}
+        </ul>
+        
+        <a href="{{ link }}" class="works__link" target="_blank">
+            <svg width="40" height="10" class="works__link-chain">
+                <path d="M23,0 L19,0 L19,1.9 L23,1.9 C24.71,1.9 26.1,3.29 26.1,5 C26.1,6.71 24.71,8.1 23,8.1 L19,8.1 L19,10 L23,10 C25.76,10 28,7.76 28,5 C28,2.24 25.76,0 23,0 Z" id="chain_right"></path>
+                <path d="M9.9,5 C9.9,3.29 11.29,1.9 13,1.9 L17,1.9 L17,0 L13,0 C10.24,0 8,2.24 8,5 C8,7.76 10.24,10 13,10 L17,10 L17,8.1 L13,8.1 C11.29,8.1 9.9,6.71 9.9,5 Z" id="chain_left"></path>
+                <polygon points="14 6 22 6 22 4 14 4" id="chain_center"></polygon>
+            </svg>
+            <p class="works__link-address">{{ address }}</p>
+        </a>
+    </li>
+{% endmacro %}
+
+<ul class="works__list">
+    {% for item in worksItems %}
+		{% if activePage == 'index' %}
+			{% if loop.index < 5 %}
+	        	{{ addWorksItem(item.name, item.img, item.address, item.link, item.categories) }}
+			{% endif %}
+		{% else %}
+			{{ addWorksItem(item.name, item.img, item.address, item.link, item.categories) }}
+		{% endif %}
+    {% endfor %}
+</ul>

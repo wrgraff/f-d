@@ -1,0 +1,25 @@
+.about__time {
+    margin-bottom: 24px;
+
+    color: color(primary);
+    
+    font-weight: 500;
+}
+
+.about__destination {
+    margin-bottom: 16px;
+
+    &::before {
+        content: '';
+        
+        display: block;
+        height: 2px;
+        margin-bottom: 4px;
+        
+        background-color: color(primary);
+    }
+}
+
+.about__destination_frontend::before {
+    width: 81.81%;
+}

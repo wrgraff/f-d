@@ -1,6 +1,25 @@
+.page-header {
+    background-color: color(white);
+}
+
+.page-header__topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;    
+}
+
 .page-header__menu {
-    margin: 0;
-    padding: 0;
+    margin: 64px 0 0;
 
     background-color: color(light-gray);
+}
+
+.page-header__contacts {
+    display: none;
+}
+
+.page-header__button {
+    display: none;
 }
