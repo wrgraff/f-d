@@ -1,3 +1,10 @@
+$flex-gaps: (
+    zero: 24px,
+    large: 32px,
+);
+$flex-columns: 6;
+$flex-columns-breakpoints: $breakpoints;
+
 // --- Container
 
 .flex {
@@ -27,15 +34,25 @@
 .flex_justify_between {
     justify-content: space-between;
 }
+@each $breakpoint-name, $breakpoint-value in $flex-columns-breakpoints {
+    @media screen and (min-width: $breakpoint-value) {
+        .flex_justify_#{$breakpoint-name}_center {
+            justify-content: center;
+        }
+        .flex_justify_#{$breakpoint-name}_end {
+            justify-content: end;
+        }
+        .flex_justify_#{$breakpoint-name}_around {
+            justify-content: space-around;
+        }
+        .flex_justify_#{$breakpoint-name}_between {
+            justify-content: space-between;
+        }
+    }
+}
 
 
 // --- Grid
-$flex-gaps: (
-    zero: 24px,
-    large: 32px,
-);
-$flex-columns: 6;
-$flex-columns-breakpoints: $breakpoints;
 
 // Gaps
 .flex {
@@ -128,18 +145,6 @@ $flex-columns-breakpoints: $breakpoints;
 // Responsive
 @each $breakpoint-name, $breakpoint-value in $flex-columns-breakpoints {
     @media screen and (min-width: $breakpoint-value) {
-        // Counted columns width
-        @for $i from 1 through $flex-columns {
-            [class*="flex_columns"] > .flex__item_#{$breakpoint-name}_#{$i} {
-                flex-basis: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
-                min-width: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
-                flex-basis: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
-                min-width: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
-                flex-grow: 0;
-                flex-shrink: 0;
-            }
-        }
-
         // Container counter mode
         @for $i from 1 through $flex-columns {
             // Base columns width in counted container
@@ -160,6 +165,18 @@ $flex-columns-breakpoints: $breakpoints;
                     flex-grow: 0;
                     flex-shrink: 0;
                 }
+            }
+        }
+
+        // Counted columns width
+        @for $i from 1 through $flex-columns {
+            [class*="flex_columns"] > .flex__item_#{$breakpoint-name}_#{$i} {
+                flex-basis: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                min-width: (($breakpoint-value / $flex-columns * $i) - ($bit * 4)) * 100% / $breakpoint-value;
+                flex-basis: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+                min-width: calc(#{100% / $flex-columns * $i} - var(--flex-gap));
+                flex-grow: 0;
+                flex-shrink: 0;
             }
         }
     }
@@ -217,10 +234,10 @@ $flex-order-breakpoints: $breakpoints;
 @each $breakpoint-name, $breakpoint-value in $flex-order-breakpoints {
     @media screen and (min-width: $breakpoint-value) {
         @for $i from 0 through $flex-orders {
-            .flex__item_#{$breakpoint-name}_order_#{$i} {
+            .flex__item_order_#{$breakpoint-name}_#{$i} {
                 order: $i;
             }
-            .flex__item_#{$breakpoint-name}_order_r#{$i} {
+            .flex__item_order_#{$breakpoint-name}_r#{$i} {
                 order: -$i;
             }
         }

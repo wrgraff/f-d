@@ -17,11 +17,21 @@
         top: 12px;
         
         display: block;
-        width: 25%;
+        width: 23%;
         width: calc(25% - 16px);
         height: 2px;
         
         background-color: color(primary);
+    }
+
+    @include breakpoint(medium) {
+        margin-bottom: 48px;
+        padding-left: 16.666%;
+
+        &::before {
+            width: 30%;
+            width: calc(33.3333% - 16px);
+        }
     }
 }
 

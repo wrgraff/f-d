@@ -1,9 +1,15 @@
 .about__time {
+    margin-top: 0;
     margin-bottom: 24px;
 
     color: color(primary);
     
     font-weight: 500;
+
+    @include breakpoint(medium) {
+        margin-top: -12px;
+        margin-bottom: 0;
+    }
 }
 
 .about__destination {

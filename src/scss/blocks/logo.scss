@@ -32,5 +32,7 @@
 }
 
 .logo__letters {
-    @include visually-hidden;
+    @include breakpoint(small, down) {
+        @include visually-hidden;
+    }
 }

@@ -3,6 +3,11 @@
     background-image: linear-gradient(90deg, color(medium-gray), color(medium-gray) 1px, transparent 1px);
     background-size: calc(25% - 6px) auto;
     background-position: 11px 50%;
+    
+    @include breakpoint(medium) {
+        background-size: calc(16.6666% - 5.5px) auto;
+        background-position: 15px 50%;
+    }
 }
 
 .page-main__section {
@@ -13,6 +18,10 @@
     align-items: stretch;
     justify-content: center;
     padding: 80px 24px;
+    
+    @include breakpoint(medium) {
+        padding: 104px 32px;
+    }
 }
 
 .page-main__section_white {
@@ -26,9 +35,13 @@
 .page-main__heading {
     margin: 0 0 16px;
 
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     text-align: center;
+
+    @include breakpoint(medium) {
+        font-size: 28px;
+    }
 }
 
 .page-main__subheading {
@@ -37,6 +50,10 @@
     opacity: .7;
     
     text-align: center;
+
+    @include breakpoint(medium) {
+        margin-bottom: 64px;
+    }
 }
 
 .page-main__button {
