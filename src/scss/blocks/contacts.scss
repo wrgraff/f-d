@@ -15,4 +15,13 @@
     border-bottom: 1px solid;
     
     text-transform: lowercase;
+
+    transition: color 200ms;
+
+    &:hover {
+        color: color(secondary);
+    }
+    &:focus {
+        @include focus-outline($outset: true);
+    }
 }

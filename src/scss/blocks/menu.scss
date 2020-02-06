@@ -15,15 +15,23 @@
     color: color(black);
     
     font-weight: 500;
+
+    transition: color 200ms, background-color 200ms;
     
     &:hover {
         color: color(primary);
-        background-color: rgba(color(white), .4);
+        background-color: color(medium-gray);
     }
+    &:focus {
+        @include focus-outline;
+    }    
 
     @include breakpoint(large) {
         padding: 10px 24px;
-        color: color(white);
+
+        &:hover {
+            background-color: color(light-gray);
+        }
     }
 }
 

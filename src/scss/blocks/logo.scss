@@ -5,7 +5,7 @@
     
     font-size: 24px;
     font-weight: 500;
-    
+
     &::before {
         content: '';
         
@@ -14,6 +14,18 @@
         height: 2px;
         
         background-color: color(primary);
+
+        transition: transform 200ms;
+    }
+
+    &:hover {
+        &::before {
+            transform: scaleX(1.1);
+        }
+    }
+    &:focus {
+        @include focus-outline;
+        background-color: color(white);
     }
 }
 
@@ -25,14 +37,25 @@
     
     text-align: center;
     line-height: 64px;
+
+    transition: transform 200ms;
     
     &:first-child {
         order: -1;
     }
+
+    .logo:hover & {
+        &:first-child {
+            transform: translateX(-16px);
+        }
+        &:last-child {
+            transform: translateX(16px);
+        }
+    }
 }
 
 .logo__letters {
-    @include breakpoint(small, down) {
+    @include breakpoint(medium, down) {
         @include visually-hidden;
     }
 }

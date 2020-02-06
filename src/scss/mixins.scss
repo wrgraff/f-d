@@ -11,6 +11,17 @@
     overflow: hidden;
 }
 
+@mixin focus-outline($outset: false) {
+    outline-width: 2px;
+    outline-style: solid;
+    @if ($outset == true) {
+        outline-offset: 2px;
+    } @else {
+        outline-offset: -2px;
+    }
+    outline-color: rgba(color(primary), .5);
+}
+
 @mixin breakpoint($breakpoint-name, $destination: up) {
     $breakpoint: $breakpoint-name;
     @if (map-get($breakpoints, $breakpoint-name)) {
