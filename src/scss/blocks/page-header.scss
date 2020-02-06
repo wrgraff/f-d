@@ -1,4 +1,5 @@
 .page-header {
+    padding-top: 64px;
     background-color: color(white);
 }
 
@@ -7,13 +8,21 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 100;    
+    z-index: 100;
+
+    @include breakpoint(large) {
+        padding-right: 320px;
+    }
 }
 
 .page-header__menu {
-    margin: 64px 0 0;
-
+    margin: 0;
+    list-style: none;
     background-color: color(light-gray);
+
+    @include breakpoint(large) {
+        background-color: color(primary);
+    }
 }
 
 .page-header__contacts {
@@ -22,4 +31,20 @@
 
 .page-header__button {
     display: none;
+}
+
+.page-header__nav {
+    @include breakpoint(large) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        width: 320px;
+        padding-top: 64px;
+
+        background-color: color(primary);
+        box-shadow: 0 -16px 16px rgba(color(black), .3);
+    }
 }

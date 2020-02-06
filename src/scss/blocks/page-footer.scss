@@ -5,6 +5,10 @@
     background-color: color(light-gray);
     
     text-align: center;
+
+    @include breakpoint(large) {
+        padding-right: 320px;
+    }
 }
 
 .page-footer__copyright {

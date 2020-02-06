@@ -11,13 +11,17 @@
     overflow: hidden;
 }
 
-@mixin breakpoint($breakpoint, $destination: up) {
+@mixin breakpoint($breakpoint-name, $destination: up) {
+    $breakpoint: $breakpoint-name;
+    @if (map-get($breakpoints, $breakpoint-name)) {
+        $breakpoint: map-get($breakpoints, $breakpoint-name);
+    }
     @if ($destination == down) {
-        @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+        @media screen and (max-width: $breakpoint) {
             @content;
         }
     } @else {
-        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+        @media screen and (min-width: $breakpoint) {
             @content;
         }
     }

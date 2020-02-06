@@ -2,11 +2,15 @@
     padding: 16px 0;
     
     text-align: center;
+
+    @include breakpoint(large) {
+        text-align: left;
+    }
 }
 
 .menu__link {
     display: block;
-    padding: 10px 8px;
+    padding: 10px 16px;
     
     color: color(black);
     
@@ -15,6 +19,11 @@
     &:hover {
         color: color(primary);
         background-color: rgba(color(white), .4);
+    }
+
+    @include breakpoint(large) {
+        padding: 10px 24px;
+        color: color(white);
     }
 }
 
