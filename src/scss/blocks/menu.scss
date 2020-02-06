@@ -24,7 +24,19 @@
     }
     &:focus {
         @include focus-outline;
-    }    
+    }
+
+    .menu__item_active & {
+        color: color(white);
+        background-color: color(primary);
+
+        &:hover {
+            background-color: darken(color(primary), 7%);
+        }
+        &:focus {
+            outline-color: rgba(color(white), .75);
+        }
+    }
 
     @include breakpoint(large) {
         padding: 10px 24px;

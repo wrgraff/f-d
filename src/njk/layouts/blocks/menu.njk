@@ -1,0 +1,27 @@
+{% set menuItems = [
+    {
+        name: "Чем помогу",
+        address: 'services'
+    },{
+        name: "Обо мне",
+        address: 'about'
+    },{
+        name: "Работы",
+        address: 'works'
+    },{
+        name: "Контакты",
+        address: 'contacts'
+    }
+] %}
+
+{% macro addMenuItem(name, address) %}
+    <li class="menu__item{{ ' menu__item_active' if (activePage == address) }}">
+        <a href="/{{ address }}/" class="menu__link">{{ name }}</a>
+    </li>
+{% endmacro %}
+
+<ul class="page-header__menu menu">
+    {% for item in menuItems %}
+        {{ addMenuItem(item.name, item.address) }}
+    {% endfor %}
+</ul>

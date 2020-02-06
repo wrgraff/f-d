@@ -1,0 +1,133 @@
+{% set title = '' %}
+{% set lang = 'ru' %}
+{% set activePage = 'contacts' %}
+
+{% extends '../layouts/index.njk' %}
+
+{% block content %}
+	<h1 class="visually-hidden">Сайт Артура Трифонова</h1>
+	
+	<section class="page-main__section page-main__section_promo promo">
+		<div class="page-main__wrapper">
+			<h2 class="visually-hidden">Коротко обо мне</h2>
+			
+			<div class="flex flex_gap_0 flex_align_center flex_justify_center flex_justify_medium_between flex_columns">
+				<div class="flex__item flex__item_3 flex__item_medium_2">
+					<picture>
+						<source srcset="/static/img/i-square.webp 1x,
+										/static/img/i-square@2x.webp 2x"
+								media="(max-width: 768px)"
+								type="image/webp" />
+						<source srcset="/static/img/i.webp 1x,
+										/static/img/i@2x.webp 2x"
+								type="image/webp" />
+						<img src="/static/img/i.jpg"
+							 srcset="/static/img/i@2x.jpg 2x"
+							 class="promo__img"
+							 alt="Фото Артура Трифонова" />
+					</picture>
+				</div>
+				
+				<div class="flex__item flex__item_6 flex__item_medium_3">
+					<p class="promo__title">Разрабатываю интерфейсы</p>
+					<p class="promo__text">Адаптивность, БЭМ, ванильный&nbsp;js и&nbsp;доступность</p>
+
+					<h3 class="visually-hidden">Контакты</h3>
+					<ul class="promo__contacts contacts">
+						<li class="contacts__item">
+							<a href="https://github.com/wrgraff" class="contacts__link">GitHub</a>
+						</li>
+						<li class="contacts__item">
+							<a href="https://linkedin.com/in/arturtrifonov" class="contacts__link">LinkedIn</a>
+						</li>
+						<li class="contacts__item">
+							<a href="https://www.facebook.com/wrgraff" class="contacts__link">Facebook</a>
+						</li>
+						<li class="contacts__item">
+							<a href="https://twitter.com/a_sassafras" class="contacts__link">Twitter</a>
+						</li>
+						<li class="contacts__item">
+							<a href="https://htmlacademy.ru/profile/wrgraff" class="contacts__link">HTML Academy</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>
+	</section>
+	
+	<section class="page-main__section page-main__section_black services">
+		<div class="page-main__wrapper">
+			<div class="flex flex_justify_center flex_columns">
+				<div class="flex__item flex__item_medium_4">
+					<h2 class="visually-hidden">Услуги</h2>
+					<p class="page-main__heading">Чем могу помочь?</p>
+					<p class="page-main__subheading">Разработаю интерфейс с нуля или по готовым дизайн-макетам, подготовлю к установке на CMS или другой интеграции.</p>
+				</div>
+			</div>
+		
+			<ul class="services__list flex flex_columns_1 flex_columns_medium_2">
+				<li class="services__item flex__item">
+					<h3 class="services__heading">Адаптив</h3>
+					<p class="services__text">Работа сайта на разрешениях с 0 пикселей до 4000</p>
+				</li>
+				<li class="services__item flex__item">
+					<h3 class="services__heading">Доступность</h3>
+					<p class="services__text">Сайт доступен с клавиатуры, для скринридеров, поисковых роботов</p>
+				</li>
+				<li class="services__item flex__item">
+					<h3 class="services__heading">Валидность</h3>
+					<p class="services__text">Код соответствует современным стандартам и выглядит достойно в любых браузерах</p>
+				</li>
+				<li class="services__item flex__item">
+					<h3 class="services__heading">Производительность</h3>
+					<p class="services__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+				</li>
+			</ul>
+		</div>
+		
+		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>
+	</section>
+	
+	<section class="page-main__section about">
+		<div class="page-main__wrapper">
+			<div class="flex flex_justify_center flex_columns">
+				<div class="flex__item flex__item_medium_4">
+					<h2 class="page-main__heading">Обо мне</h2>
+					<p class="page-main__subheading">Разработчик интерфейсов из Санкт-Петербурга. Занимаюсь дизайном и фронтендом: работаю на стыке двух плотно пересекающихся областей.</p>
+				</div>
+			</div>
+
+			<div class="flex flex_columns_4 flex_columns_medium_6">
+				<p class="about__time flex__item flex__item_3 flex__item_medium_2">11 лет разрабатываю интерфейсы</p>
+				<p class="about__destination flex__item flex__item_4 flex__item_order_medium_r1">с 2009 года занимаюсь дизайном</p>
+				<p class="about__destination about__destination_frontend flex__item flex__item_4">с 2013 года занимаюсь фронтендом</p>
+			</div>
+			
+			<div class="flex flex_columns">
+				<div class="flex__item flex__item_6 flex__item_medium_4">
+					<p>Веб-разработка стала не только моей работой, но и увлечением, а ее безумные темпы развития только подстегивают интерес. Мне важно то, чем я занимаюсь, и я ценю работу с теми, кому не безразлично собственное дело.</p>
+				</div>
+				<div class="flex__item">
+					<p>С интересом наставничаю в HTML Academy</p>
+				</div>
+			</div>
+		</div>
+		
+		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>
+	</section>
+	
+	<section class="page-main__section page-main__section_white works">
+		<div class="page-main__wrapper">
+			<div class="flex flex_justify_center flex_columns">
+				<div class="flex__item flex__item_medium_4">
+					<h2 class="page-main__heading">Последние работы</h2>
+					<p class="page-main__subheading">В каждом из проектов я работаю над различным набором задач, поэтому отметил их основными тегами.</p>
+				</div>
+			</div>
+
+			{% include "blocks/works.njk" %}	
+		</div>
+	</section>
+{% endblock %}

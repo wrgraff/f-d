@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="page-layout__header page-header">
     <div class="page-header__topbar">
         <a href="/" class="logo">
             <span class="logo__text">f<span class="logo__letters">rontend</span></span><span class="visually-hidden">-</span><span class="logo__text">d<span class="logo__letters">esign</span></span>
@@ -7,17 +7,8 @@
     
     <nav class="page-header__nav">
         <a href="/" class="page-header__heading">Artur Trifonov site</a>
-        <ul class="page-header__menu menu">
-            <li class="menu__item">
-                <a href="#" class="menu__link">Чем помогу</a>
-            </li>
-            <li class="menu__item">
-                <a href="#" class="menu__link">Обо мне</a>
-            </li>
-            <li class="menu__item">
-                <a href="#" class="menu__link">Портфолио</a>
-            </li>
-        </ul>
+
+        {% include "blocks/menu.njk" %}
         
         <ul class="page-header__contacts contacts">
             <li class="contacts__item">

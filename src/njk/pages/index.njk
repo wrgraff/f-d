@@ -1,5 +1,6 @@
 {% set title = '' %}
 {% set lang = 'ru' %}
+{% set activePage = 'index' %}
 
 {% extends '../layouts/index.njk' %}
 
@@ -12,8 +13,21 @@
 			
 			<div class="flex flex_gap_0 flex_align_center flex_justify_center flex_justify_medium_between flex_columns">
 				<div class="flex__item flex__item_3 flex__item_medium_2">
-					<img src="https://via.placeholder.com/400" class="promo__img" alt="Фото Артура Трифонова">
+					<picture>
+						<source srcset="/static/img/i-square.webp 1x,
+										/static/img/i-square@2x.webp 2x"
+								media="(max-width: 768px)"
+								type="image/webp" />
+						<source srcset="/static/img/i.webp 1x,
+										/static/img/i@2x.webp 2x"
+								type="image/webp" />
+						<img src="/static/img/i.jpg"
+							 srcset="/static/img/i@2x.jpg 2x"
+							 class="promo__img"
+							 alt="Фото Артура Трифонова" />
+					</picture>
 				</div>
+				
 				<div class="flex__item flex__item_6 flex__item_medium_3">
 					<p class="promo__title">Разрабатываю интерфейсы</p>
 					<p class="promo__text">Адаптивность, БЭМ, ванильный&nbsp;js и&nbsp;доступность</p>

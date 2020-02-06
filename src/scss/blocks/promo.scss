@@ -1,13 +1,15 @@
 .promo__img {
+    width: 100%;
     margin-bottom: 16px;
 
     @include breakpoint(medium) {
+        width: calc(100% + 16px);
         max-width: calc(100% + 16px);
         margin-left: -16px;
         margin-bottom: 0;
     }
     @include breakpoint(large) {
-        max-width: 100%;
+        width: 100%;
         margin-left: 0;
     }
 }

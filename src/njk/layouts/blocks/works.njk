@@ -66,8 +66,7 @@
     <li class="works__item">
         <h3 class="works__heading">{{ name[0] if (lang == 'en') }}{{ name[1] if (lang == 'ru') }}</h3>
         <div class="works__img">
-            <img src="https://via.placeholder.com/278x340" alt="Скриншоты сайта Сенсорматика">
-            {# <picture>
+            <picture>
 	            <source srcset="/static/img/works/{{ img }}.webp 1x,
 	                            /static/img/works/{{ img }}@2x.webp 2x"
 	                    type="image/webp" />
@@ -75,7 +74,7 @@
 	                 srcset="/static/img/works/{{ img }}@2x.png 2x"
 	                 alt="{{ name }}"
 					 aria-hidden="true" />
-	        </picture> #}
+	        </picture>
         </div>
         <h4 class="visually-hidden">Тип работ</h4>
         <ul class="works__categories">

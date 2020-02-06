@@ -51,7 +51,8 @@
     }
 
     @include breakpoint(medium) {
-        margin-bottom: 16px;
+        margin-top: auto;
+        margin-bottom: 0;
 
         font-size: 20px;
     }
@@ -75,6 +76,8 @@
         bottom: 0;
 
         margin: 0;
+
+        background-color: transparent;
     }
 }
 
@@ -96,12 +99,19 @@
     li {
         padding: 2px 8px;
     }
+
+    @include breakpoint(medium) {
+        order: -2;
+        max-width: 76%;
+        margin-bottom: 0;
+    }
 }
 
 .works__link {
     display: inline-flex;
     align-items: center;
     margin: auto 0 0;
+    padding-right: 8px;
     
     color: color(dark-gray);
 
