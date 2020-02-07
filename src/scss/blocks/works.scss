@@ -144,40 +144,42 @@
     }
 }
 
-.works__link-chain {
+.works__chain {
     margin-top: 1px;
     margin-left: -8px;
 
-    path, polygon {
+    path,
+    polygon {
         fill: transparent;
-    }
 
-    #chain_center {
-        transition: fill 200ms ease;
+        .works__link:hover &,
+        .works__link:focus & {
+            fill: color(dark-gray);
+        }
     }
-    #chain_left,
-    #chain_right {
-        transition: fill 200ms ease, transform 200ms ease-out 200ms;
-    }
-    #chain_left {
-        transform: translateX(-8px);
-    }
-    #chain_right {
-        transform: translateX(8px);
-    }
+}
+
+.works__chain-center {
+    transition: fill 200ms ease;
 
     .works__link:hover &,
     .works__link:focus & {
-        path, polygon {
-            fill: color(dark-gray);
-        }
-        #chain_center {
-            transition: fill 200ms ease 100ms;
-        }
-        #chain_left,
-        #chain_right {
-            transform: translateX(0);
-            transition: fill 200ms ease 100ms, transform 200ms ease-out 150ms;
-        }
+        transition: fill 200ms ease 100ms;
     }
+}
+.works__chain-left,
+.works__chain-right {
+    transition: fill 200ms ease, transform 200ms ease-out 200ms;
+
+    .works__link:hover &,
+    .works__link:focus & {
+        transform: translateX(0);
+        transition: fill 200ms ease 100ms, transform 200ms ease-out 150ms;
+    }
+}
+.works__chain-left {
+    transform: translateX(-8px);
+}
+.works__chain-right {
+    transform: translateX(8px);
 }

@@ -58,7 +58,8 @@ gulp.task('img', () => {
 		    imagemin.optipng({optimizationLevel: 3}),
 		    imagemin.svgo({
 		        plugins: [
-		            {cleanupIDs: true}
+					{cleanupIDs: false},
+					{removeUselessDefs: false}
 		        ]
 		    })
 		]))
