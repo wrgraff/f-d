@@ -13,6 +13,10 @@
     @include breakpoint(large) {
         padding-right: 320px;
     }
+
+    .page-header_toggling & {
+        margin-left: 48px;
+    }
 }
 
 .page-header__menu {
@@ -21,6 +25,9 @@
     background-color: color(light-gray);
 
     @include breakpoint(large) {
+        background-color: transparent;
+    }
+    .page-header_toggling & {
         background-color: transparent;
     }
 }
@@ -33,13 +40,21 @@
     @include breakpoint(large) {
         display: flex;
     }
+    .page-header_toggling & {
+        display: flex;
+    }
 }
 
 .page-header__button {
     display: none;
     margin: 0 28px 28px;
+    padding-left: 24px;
+    padding-right: 24px;
 
     @include breakpoint(large) {
+        display: block;
+    }
+    .page-header_toggling & {
         display: block;
     }
 }
@@ -51,7 +66,7 @@
     padding: 8px 28px;
 
     color: color(primary);
-    border-bottom: 1px solid rgba(color(primary), .2);
+    border-bottom: 1px solid lighten(color(primary), 35%);;
 
     font-weight: 500;
     line-height: 48px;
@@ -59,13 +74,16 @@
     transition: background-color 200ms;
 
     &:hover {
-        background-color: rgba(color(primary), .1);
+        background-color: lighten(color(primary), 40%);
     }
     &:focus {
         @include focus-outline;
     }
 
     @include breakpoint(large) {
+        display: block;
+    }
+    .page-header_toggling & {
         display: block;
     }
 }
@@ -84,6 +102,104 @@
         padding: 0;
 
         background-color: color(white);
-        border-left: 1px solid rgba(color(primary), .1);
+        border-left: 1px solid lighten(color(primary), 40%);
+    }
+
+    .page-header_toggling & {
+        @include breakpoint(large, down) {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -264px;
+            z-index: 101;
+    
+            display: flex;
+            flex-direction: column;
+            width: 264px;
+            padding: 0;
+    
+            background-color: color(white);
+            border-right: 1px solid lighten(color(primary), 40%);
+    
+            transition: transform 200ms;
+        }
+    }
+}
+
+.page-header__nav_opened {
+    @include breakpoint(large, down) {
+        transform: translateX(264px);
+    }
+}
+
+.page-header__toggler {
+    position: absolute;
+    left: 100%;
+    left: calc(100% + 1px);
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 64px;
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+
+    transition: background-color 200ms;
+
+    &::before,
+    &::after {
+        content: '';
+
+        display: block;
+        width: 2px;
+        height: 24px;
+        margin: 0 2px;
+
+        background-color: color(primary);
+
+        transition: transform 200ms;
+    }
+
+    &:hover {
+        background-color: lighten(color(primary), 40%);
+
+        &::before {
+            transform: translateX(-2px);
+        }
+        &::after {
+            transform: translateX(2px);
+        }
+    }
+    &:focus {
+        @include focus-outline;
+    }
+
+    @include breakpoint(large) {
+        display: none;
+    }
+}
+
+.page-header__toggler_active {
+    background-color: color(white);
+
+    &::before {
+        transform: translatex(3px) rotate(45deg);
+    }
+    &::after {
+        transform: translatex(-3px) rotate(-45deg);
+    }
+
+    &:hover {
+        &::before {
+            transform: translatex(3px) rotate(-45deg);
+        }
+        &::after {
+            transform: translatex(-3px) rotate(45deg);
+        }
     }
 }

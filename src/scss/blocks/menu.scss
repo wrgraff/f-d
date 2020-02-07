@@ -6,6 +6,9 @@
     @include breakpoint(large) {
         text-align: left;
     }
+    .page-header_toggling & {
+        text-align: left;
+    }
 }
 
 .menu__link {
@@ -39,6 +42,14 @@
     }
 
     @include breakpoint(large) {
+        padding: 10px 24px;
+
+        &:hover {
+            background-color: color(light-gray);
+        }
+    }
+
+    .page-header_toggling & {
         padding: 10px 24px;
 
         &:hover {
