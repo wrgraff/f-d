@@ -15,7 +15,9 @@
     }
 
     .page-header_toggling & {
-        margin-left: 48px;
+        @include breakpoint(large, down) {
+            margin-left: 48px;
+        }
     }
 }
 
