@@ -19,6 +19,7 @@
 
 .page-main__section {
     position: relative;
+    display: flex;
 }
 
 .page-main__section_white {
@@ -29,11 +30,23 @@
     background-color: color(black);
 }
 
+.page-main__section_promo {
+    @include breakpoint(large) {
+        min-height: calc(100vh - 64px);
+    }
+    @include breakpoint(large, down) {
+        .page-header_toggling ~ .page-main & {
+            min-height: calc(100vh - 100px);
+        }
+    }
+}
+
 .page-main__wrapper {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    width: 100%;
     padding: 80px 24px;
     
     @include breakpoint(medium) {
