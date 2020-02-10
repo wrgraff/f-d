@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{{ title }} {{ ' — ' if (title != '') }} frontend—design</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
 
     <link rel="stylesheet" href="/static/css/style.css">
     {# <link rel="icon" href="/static/favicons/favicon.ico"> #}
@@ -30,12 +30,16 @@
     {# <!-- Manifest --> #}
     <link rel="manifest" href="/manifest.json">
     {# <!-- og --> #}
-    <meta property="og:title" content="frontend—design | Artur Trifonov" />
-    <meta property="og:description" content="Artur Trifonov personal site: about me and my work" />
+    <meta property="og:title" content="{{ title }} {{ ' — ' if (title != '') }} frontend—design" />
+    <meta property="og:description" content="{{ description }}" />
     <meta property="og:image" content="/static/favicons/og.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="frontend—design | Artur Trifonov" />
-    <meta property="og:url" content="https://frontend-design.ru/" />
+    {% if activePage == 'index' %}
+        <meta property="og:url" content="https://frontend-design.ru/" />
+    {% else %}
+        <meta property="og:url" content="https://frontend-design.ru/{{ activePage }}/" />
+    {% endif %}
     <meta property="og:locale" content="ru_RU" />
 
     <link rel="preload" href="/static/fonts/gotham-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
