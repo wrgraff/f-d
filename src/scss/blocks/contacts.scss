@@ -7,6 +7,10 @@
     list-style: none;
 }
 
+.contacts_vertical {
+    flex-direction: column;
+}
+
 .contacts__item {
     margin: 0 8px 8px;
 }
