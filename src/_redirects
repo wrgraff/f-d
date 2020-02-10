@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://frontend-design.netlify.com/* https://frontend-design.ru/:splat 301!

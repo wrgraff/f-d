@@ -92,6 +92,11 @@ gulp.task('manifest', () => {
         .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('settings', () => {
+	return gulp.src('src/_redirects')
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('del', () => {
 	return del('dist');
 });
@@ -118,7 +123,8 @@ gulp.task('build', gulp.series(
 	'img',
 	'favicons',
 	'fonts',
-	'manifest'
+	'manifest',
+	'settings'
 ));
 
 gulp.task('default', gulp.series(

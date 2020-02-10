@@ -144,6 +144,8 @@
     top: 12px;
     left: 50%;
 
+    display: none;
+
     color: color(black);
     border-bottom: 2px solid;
     opacity: 0;
@@ -166,5 +168,9 @@
     }
     .page-main__section_black & {
         color: color(white);
+    }
+
+    @include breakpoint(large) {
+        display: inline;
     }
 }
