@@ -7,36 +7,73 @@
 {% extends '../layouts/index.njk' %}
 
 {% block content %}
-	<h1 class="visually-hidden">Услуги</h1>
-		
-	<section class="page-main__section page-main__section_black services">
+	<section class="page-main__section services-page">
 		<div class="page-main__wrapper">
 			<div class="flex flex_justify_center flex_columns">
 				<div class="flex__item flex__item_medium_4">
-					<h2 class="visually-hidden">Услуги</h2>
-					<p class="page-main__heading page-main__heading_large">Чем могу помочь?</p>
+					<h1 class="page-main__heading page-main__heading_large">Услуги</h1>
 					<p class="page-main__subheading">Разработаю интерфейс с нуля или по готовым дизайн-макетам, подготовлю к установке на CMS или другой интеграции.</p>
 				</div>
 			</div>
-		
-			<ul class="services__list flex flex_columns_1 flex_columns_medium_2">
-				<li class="services__item flex__item">
-					<h3 class="services__heading">Адаптив</h3>
-					<p class="services__text">Работа сайта на разрешениях с 0 пикселей до 4000</p>
-				</li>
-				<li class="services__item flex__item">
-					<h3 class="services__heading">Доступность</h3>
-					<p class="services__text">Сайт доступен с клавиатуры, для скринридеров, поисковых роботов</p>
-				</li>
-				<li class="services__item flex__item">
-					<h3 class="services__heading">Валидность</h3>
-					<p class="services__text">Код соответствует современным стандартам и выглядит достойно в любых браузерах</p>
-				</li>
-				<li class="services__item flex__item">
-					<h3 class="services__heading">Производительность</h3>
-					<p class="services__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
-				</li>
-			</ul>
+
+			<div class="flex flex_columns_1 flex_columns_medium_3">
+				<div class="flex__item">
+					<h2 class="page-main__heading page-main__heading_align_left">Design</h2>
+
+					<ul class="services-page__list">
+						<li class="services-page__item">
+							<h3 class="services-page__heading">Разработка прототипа</h3>
+							<p class="services-page__text">Создам по условиям задачи интерактивный прототип, на котором можно будет проверить работу будущего сайта.</p>
+						</li>
+						<li class="services-page__item">
+							<h3 class="services-page__heading">Дизайн по прототипу</h3>
+							<p class="services-page__text">Создам дизайн по готовому прототипу</p>
+						</li>
+						<li class="services-page__item">
+							<h3 class="services-page__heading">Аудит юзабилити</h3>
+							<p class="services-page__text">Оценю интерфейс: подберу и протестирую сценарии использования; проверю стандартные паттерны; проведу аудит доступности сайта.</p>
+						</li>
+						<li class="services-page__item">
+							<h3 class="services-page__heading">Редизайн интерфейса</h3>
+							<p class="services-page__text">Сайт доступен с клавиатуры, для скринридеров, поисковых роботов</p>
+						</li>
+					</ul>
+				</div>
+				<div class="flex__item flex__item_2">
+					<h2 class="page-main__heading page-main__heading_align_left">Frontend</h2>
+
+					<ul class="services-page__list flex flex_columns_1 flex_columns_medium_2">
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Внедрение адаптива</h3>
+							<p class="services-page__text">Работа сайта на разрешениях с 0 пикселей до 4000</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Улучшение производительности</h3>
+							<p class="services-page__text">Сайт доступен с клавиатуры, для скринридеров, поисковых роботов</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Улучшение доступности</h3>
+							<p class="services-page__text">Код соответствует современным стандартам и выглядит достойно в любых браузерах</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Верстка по макету</h3>
+							<p class="services-page__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Поддержка сайта</h3>
+							<p class="services-page__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Исправление ошибок</h3>
+							<p class="services-page__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+						</li>
+						<li class="services-page__item flex__item flex__item_1">
+							<h3 class="services-page__heading">Внедрение новых функций</h3>
+							<p class="services-page__text">Код сокращается, медиа-ресурсы сайта оптимизируются</p>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		
 		<a href="mailto:hello@frontend-design.ru" class="page-main__button button" target="_blank">Написать мне</a>

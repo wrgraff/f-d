@@ -109,8 +109,8 @@ gulp.task('serve', () => {
 	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
     gulp.watch('src/js/**/*.js', gulp.series('js'));
 
-	gulp.watch('src/dist/**/*.js').on('change', browserSync.reload);
-	gulp.watch('src/dist/**/*.html').on('change', browserSync.reload);
+	gulp.watch('dist/**/*.js').on('change', browserSync.reload);
+	gulp.watch('dist/**/*.html').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series(
