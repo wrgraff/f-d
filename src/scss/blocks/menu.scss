@@ -56,5 +56,13 @@
             background-color: color(light-gray);
         }
     }
+    .page-header_toggling .menu__item_active & {
+        &:hover {
+            background-color: darken(color(primary), 7%);
+        }
+        &:focus {
+            outline-color: rgba(color(white), .75);
+        }
+    }
 }
 
