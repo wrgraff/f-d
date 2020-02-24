@@ -37,8 +37,7 @@ gulp.task('js', () => {
         .pipe(gulp.dest('dist/static/js'))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/static/js'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist/static/js'));
 });
 
 gulp.task('njk', () => {
@@ -47,8 +46,7 @@ gulp.task('njk', () => {
             path: ['src/njk/layouts']
         }))
         .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
-        .pipe(gulp.dest('dist'))
-		.pipe(browserSync.stream());
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('img', () => {
