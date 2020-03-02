@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     include = require("gulp-include"),
 	nunjucks = require('gulp-nunjucks-render'),
 	prettier = require('gulp-prettier'),
+	typograf = require('gulp-typograf'),
 	imagemin = require('gulp-imagemin'),
 	webp = require('gulp-webp'),
 	del = require('del'),
@@ -44,7 +45,8 @@ gulp.task('njk', () => {
 	return gulp.src('src/njk/pages/**/*.njk')
         .pipe(nunjucks({
             path: ['src/njk/layouts']
-        }))
+		}))
+		.pipe(typograf({ locale: ['ru', 'en-US'], htmlEntity: { type: 'name' } }))
         .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
         .pipe(gulp.dest('dist'));
 });

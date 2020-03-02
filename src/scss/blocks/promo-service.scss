@@ -1,0 +1,27 @@
+.promo-service {
+    padding: 24px;
+
+    background-color: color(white);
+    border-radius: 4px;
+    // box-shadow: 0 8px 24px -12px rgba(color(primary), .4);
+}
+
+.promo-service__heading {
+    margin: 0 0 16px;
+
+    font-size: 18px;
+
+    @include breakpoint(medium) {
+        font-size: 24px;
+    }
+}
+
+.promo-service__subheading {
+    margin: 0 0 8px;
+
+    opacity: .7;
+
+    @include breakpoint(medium) {
+        margin-bottom: 16px;
+    }
+}
