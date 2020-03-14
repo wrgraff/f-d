@@ -1,9 +1,13 @@
 .promo-service {
     padding: 24px;
 
-    background-color: color(white);
+    color: color(white);
+    background-color: color(primary);
+    background-position: 50% 20%;
+    background-size: cover;
+    background-image: url(../img/bg/abstract.jpg);
     border-radius: 4px;
-    // box-shadow: 0 8px 24px -12px rgba(color(primary), .4);
+    box-shadow: 0 8px 24px -12px rgba(color(primary), .4);
 }
 
 .promo-service__heading {
@@ -12,7 +16,7 @@
     font-size: 18px;
 
     @include breakpoint(medium) {
-        font-size: 24px;
+        font-size: 32px;
     }
 }
 
