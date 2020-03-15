@@ -1,5 +1,7 @@
 .promo-service {
-    padding: 24px;
+    position: relative;
+
+    padding: 32px;
 
     color: color(white);
     background-color: color(primary);
@@ -7,25 +9,61 @@
     background-size: cover;
     background-image: url(../img/bg/abstract.jpg);
     border-radius: 4px;
-    box-shadow: 0 8px 24px -12px rgba(color(primary), .4);
+    box-shadow: 0 10px 20px -12px rgba(color(secondary), .9);
 }
 
 .promo-service__heading {
     margin: 0 0 16px;
 
     font-size: 18px;
+    line-height: 1.2;
 
     @include breakpoint(medium) {
-        font-size: 32px;
+        font-size: 40px;
     }
 }
 
 .promo-service__subheading {
     margin: 0 0 8px;
 
-    opacity: .7;
-
     @include breakpoint(medium) {
-        margin-bottom: 16px;
+        font-size: 18px;
+    }
+}
+
+.promo-service__actions {
+    padding-top: 64px;
+
+    .button {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.promo-service__link {
+    margin-left: 16px;
+
+    color: color(white);
+    border-bottom: 2px solid;
+
+    font-size: 18px;
+
+    transition: color 250ms;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &:hover {
+        color: rgba(color(white), .5);
+    }
+    &:focus {
+        @include focus-outline(true);
+        outline-color: rgba(color(white), .5);
     }
 }

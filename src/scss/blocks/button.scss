@@ -27,3 +27,17 @@
         box-shadow: 0 4px 12px -6px rgba(color(primary), .9);
     }
 }
+
+.button_color_white {
+    color: color(primary);
+    background-color: color(white);
+
+    &:hover {
+        background-color: darken(color(white), 7%);
+    }
+    &:focus {
+        box-shadow: 0 8px 16px -8px rgba(color(primary), .8),
+                    0 0 0 2px color(secondary),
+                    0 0 0 4px rgba(color(white), .8);
+    }
+}
