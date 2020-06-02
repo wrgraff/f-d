@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     include = require("gulp-include"),
 	nunjucks = require('gulp-nunjucks-render'),
-	prettier = require('gulp-prettier'),
+	htmlmin = require('gulp-htmlmin'),
 	typograf = require('gulp-typograf'),
 	imagemin = require('gulp-imagemin'),
 	webp = require('gulp-webp'),
@@ -47,7 +47,8 @@ gulp.task('njk', () => {
             path: ['src/njk/layouts']
 		}))
 		.pipe(typograf({ locale: ['ru', 'en-US'], htmlEntity: { type: 'name' } }))
-        .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
+		// .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
+		.pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('dist'));
 });
 
