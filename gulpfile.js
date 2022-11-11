@@ -6,7 +6,6 @@ import jshint from 'gulp-jshint';
 import uglify from 'gulp-uglify-es';
 import rename from 'gulp-rename';
 import clone from 'gulp-clone';
-import concat from 'gulp-concat';
 import include from "gulp-include";
 import nunjucks from 'gulp-nunjucks-render';
 import htmlmin from 'gulp-htmlmin';
