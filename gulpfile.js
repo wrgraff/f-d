@@ -1,21 +1,21 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    cssmin = require('gulp-cssmin'),
-    autoprefixer = require('gulp-autoprefixer'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify-es').default,
-    rename = require('gulp-rename'),
-    clone = require('gulp-clone'),
-    concat = require('gulp-concat'),
-    include = require("gulp-include"),
-	nunjucks = require('gulp-nunjucks-render'),
-	htmlmin = require('gulp-htmlmin'),
-	typograf = require('gulp-typograf'),
-	squoosh = require('gulp-libsquoosh'),
-	del = require('del'),
-    browserSync = require('browser-sync').create();
+import gulp from 'gulp';
+import sass from 'gulp-dart-sass';
+import cssmin from 'gulp-cssmin';
+import autoprefixer from 'gulp-autoprefixer';
+import jshint from 'gulp-jshint';
+import uglify from 'gulp-uglify-es';
+import rename from 'gulp-rename';
+import clone from 'gulp-clone';
+import concat from 'gulp-concat';
+import include from "gulp-include";
+import nunjucks from 'gulp-nunjucks-render';
+import htmlmin from 'gulp-htmlmin';
+import typograf from 'gulp-typograf';
+import squoosh from 'gulp-libsquoosh';
+import { deleteAsync } from 'del';
+import browserSync from 'browser-sync';
 
-gulp.task('scss', () => {
+const scss = () => {
     return gulp.src('src/scss/style.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -28,19 +28,19 @@ gulp.task('scss', () => {
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/static/css'))
         .pipe(browserSync.stream());
-});
+}
 
-gulp.task('js', () => {
+const js = () => {
     return gulp.src('src/js/scripts.js')
         .pipe(include())
         .on('error', console.log)
         .pipe(gulp.dest('dist/static/js'))
-        .pipe(uglify())
+        .pipe(uglify.default())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/static/js'));
-});
+}
 
-gulp.task('njk', () => {
+const njk = () => {
 	return gulp.src('src/njk/pages/**/*.njk')
         .pipe(nunjucks({
             path: ['src/njk/layouts']
@@ -49,9 +49,9 @@ gulp.task('njk', () => {
 		// .pipe(prettier({ proseWrap: 'never', printWidth: 800, tabWidth: 4, useTabs: true }))
 		.pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('dist'));
-});
+}
 
-gulp.task('img', () => {
+const img = () => {
 	return gulp.src('src/img/**/*')
 		.pipe(
 			squoosh({
@@ -59,62 +59,61 @@ gulp.task('img', () => {
 			})
 		)
 		.pipe(gulp.dest('dist/static/img'));
-});
+}
 
-gulp.task('favicons', () => {
+const favicons = () => {
 	return gulp.src('src/favicons/**/*')
 		.pipe(
 			squoosh()
 		)
         .pipe(gulp.dest('dist/static/favicons'));
-});
+}
 
-gulp.task('fonts', () => {
+const fonts = () => {
 	return gulp.src('src/fonts/**/*{woff,woff2}')
         .pipe(gulp.dest('dist/static/fonts'));
-});
+}
 
-gulp.task('manifest', () => {
+const manifest = () => {
 	return gulp.src('src/**/*{xml,json}')
         .pipe(gulp.dest('dist/'));
-});
+}
 
-gulp.task('settings', () => {
+const settings = () => {
 	return gulp.src('src/_redirects')
         .pipe(gulp.dest('dist/'));
-});
+}
 
-gulp.task('del', () => {
-	return del('dist');
-});
+const clean = () => {
+	return deleteAsync('dist');
+}
 
-
-gulp.task('serve', () => {
+const serve = () => {
 	browserSync.init({
-        server: "./dist"
+        baseDir: './dist'
     });
 
-    gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
-	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
-    gulp.watch('src/js/**/*.js', gulp.series('js'));
+    gulp.watch('src/scss/**/*.scss', gulp.series(scss));
+	gulp.watch('src/njk/**/*.njk', gulp.series(njk));
+    gulp.watch('src/js/**/*.js', gulp.series(js));
 
 	gulp.watch('dist/**/*.js').on('change', browserSync.reload);
 	gulp.watch('dist/**/*.html').on('change', browserSync.reload);
-});
+}
 
-gulp.task('build', gulp.series(
-	'del',
-	'scss',
-	'njk',
-	'js',
-	'img',
-	'favicons',
-	'fonts',
-	'manifest',
-	'settings'
-));
+export const build = gulp.series(
+	clean,
+	scss,
+	njk,
+	js,
+	img,
+	favicons,
+	fonts,
+	manifest,
+	settings
+);
 
-gulp.task('default', gulp.series(
-	'build',
-	'serve'
-));
+export default gulp.series(
+	build,
+	serve
+);

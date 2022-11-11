@@ -5,30 +5,32 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Artur Trifonov",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "del": "^5.1.0",
+    "browser-sync": "^2.27.10",
+    "del": "^7.0.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-clone": "^2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
+    "gulp-dart-sass": "^1.0.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-include": "^2.3.1",
+    "gulp-include": "^2.4.1",
     "gulp-jshint": "^2.1.0",
     "gulp-libsquoosh": "^1.1.2",
-    "gulp-livereload": "^4.0.1",
+    "gulp-livereload": "^4.0.2",
     "gulp-nunjucks-render": "^2.2.3",
-    "gulp-prettier": "^2.1.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.1",
-    "gulp-typograf": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4",
-    "jshint": "^2.10.2"
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typograf": "^4.0.3",
+    "gulp-uglify-es": "^3.0.0",
+    "jshint": "^2.13.5"
   },
   "browserslist": [
     "last 2 version",
@@ -36,5 +38,8 @@
     "maintained node versions",
     "not dead"
   ],
-  "dependencies": {}
+  "engines": {
+    "node": "^16"
+  },
+  "type": "module"
 }
