@@ -11,8 +11,7 @@ var gulp = require('gulp'),
 	nunjucks = require('gulp-nunjucks-render'),
 	htmlmin = require('gulp-htmlmin'),
 	typograf = require('gulp-typograf'),
-	imagemin = require('gulp-imagemin'),
-	webp = require('gulp-webp'),
+	squoosh = require('gulp-libsquoosh'),
 	del = require('del'),
     browserSync = require('browser-sync').create();
 
@@ -54,32 +53,19 @@ gulp.task('njk', () => {
 
 gulp.task('img', () => {
 	return gulp.src('src/img/**/*')
-		.pipe(imagemin([
-		    imagemin.jpegtran({progressive: true}),
-		    imagemin.optipng({optimizationLevel: 3}),
-		    imagemin.svgo({
-		        plugins: [
-					{cleanupIDs: false},
-					{removeUselessDefs: false}
-		        ]
-		    })
-		]))
-        .pipe(gulp.dest('dist/static/img'))
-		.pipe(webp())
+		.pipe(
+			squoosh({
+				webp: {},
+			})
+		)
 		.pipe(gulp.dest('dist/static/img'));
 });
 
 gulp.task('favicons', () => {
 	return gulp.src('src/favicons/**/*')
-		.pipe(imagemin([
-		    imagemin.jpegtran({progressive: true}),
-		    imagemin.optipng({optimizationLevel: 3}),
-		    imagemin.svgo({
-		        plugins: [
-		            {cleanupIDs: true}
-		        ]
-		    })
-		]))
+		.pipe(
+			squoosh()
+		)
         .pipe(gulp.dest('dist/static/favicons'));
 });
 
