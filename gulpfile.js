@@ -20,9 +20,6 @@ const scss = () => {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(gulp.dest('dist/static/css'))
-        .pipe(browserSync.stream())
-        .pipe(clone())
         .pipe(cssmin())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/static/css'))

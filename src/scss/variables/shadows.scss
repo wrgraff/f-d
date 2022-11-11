@@ -1,5 +1,7 @@
+@use "sass:math";
+
 $shadows: (
-    1-lvl: $bit / 2,
+    1-lvl: math.div($bit, 2),
     2-lvl: $bit,
     3-lvl: $bit * 2,
 );
