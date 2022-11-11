@@ -28,7 +28,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.1.1",
     "gulp-typograf": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4",
+    "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "jshint": "^2.10.2"
   },
