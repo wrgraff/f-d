@@ -101,15 +101,7 @@ const serve = () => {
 }
 
 export const build = gulp.series(
-	clean,
-	scss,
-	njk,
-	js,
-	img,
-	favicons,
-	fonts,
-	manifest,
-	settings
+	clean
 );
 
 export default gulp.series(
