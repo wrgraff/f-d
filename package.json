@@ -25,7 +25,7 @@
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-prettier": "^2.1.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.1",
+    "gulp-sass": "^5.1.0",
     "gulp-typograf": "^4.0.2",
     "gulp-uglify-es": "^1.0.4",
     "jshint": "^2.10.2"
